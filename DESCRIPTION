@@ -1,6 +1,6 @@
 Package: keyholder
 Title: Store Data About Rows
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: person("Evgeni", "Chasnovski", email = "evgeni.chasnovski@gmail.com",
     role = c("aut", "cre"))
 Description: Tools for keeping track of information, named "keys", about rows of
@@ -19,8 +19,8 @@ Imports: dplyr (>= 0.7.0), rlang (>= 0.1)
 Suggests: knitr, rmarkdown, testthat, covr
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2017-11-12 16:07:36 UTC; evgeni
+Packaged: 2018-05-19 21:07:27 UTC; evgeni
 Author: Evgeni Chasnovski [aut, cre]
 Maintainer: Evgeni Chasnovski <evgeni.chasnovski@gmail.com>
 Repository: CRAN
-Date/Publication: 2017-11-13 09:21:46 UTC
+Date/Publication: 2018-05-19 21:27:54 UTC
