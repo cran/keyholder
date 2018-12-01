@@ -1,3 +1,7 @@
+# keyholder 0.1.3
+
+* Reaction to `tibble` 2.0.0: ease some tests and adjust to deprecated functionality.
+
 # keyholder 0.1.2
 
 * Reaction to `dplyr` 0.7.5: ease some tests and fix bugs in methods for `dplyr` generics.

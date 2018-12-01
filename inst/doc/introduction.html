@@ -12,7 +12,7 @@
 
 <meta name="author" content="Evgeni Chasnovski" />
 
-<meta name="date" content="2018-05-20" />
+<meta name="date" content="2018-12-01" />
 
 <title>Introduction to keyholder</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Introduction to keyholder</h1>
 <h4 class="author"><em>Evgeni Chasnovski</em></h4>
-<h4 class="date"><em>2018-05-20</em></h4>
+<h4 class="date"><em>2018-12-01</em></h4>
 
 
 
@@ -91,11 +91,11 @@ mtcars_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="k
 <span class="co">#&gt; # A keyed object. Keys: id </span>
 <span class="co">#&gt; # A tibble: 32 x 11</span>
 <span class="co">#&gt;     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb</span>
-<span class="co">#&gt; * &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
 <span class="co">#&gt; 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4</span>
 <span class="co">#&gt; 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4</span>
 <span class="co">#&gt; 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1</span>
-<span class="co">#&gt; # ... with 29 more rows</span></code></pre></div>
+<span class="co">#&gt; # … with 29 more rows</span></code></pre></div>
 <ul>
 <li>With <code>key_by()</code> and its scoped variants (<code>*_all()</code>, <code>*_if()</code> and <code>*_at()</code>). This is similar in its design to <code>dplyr</code>’s <code>group_by()</code>: it takes some columns from reference data frame and makes keys from them. It has two important options: <code>.add</code> (whether to add specified columns to existing keys) and <code>.exclude</code> (whether to exclude specified columns from reference data frame). Grouping is ignored.</li>
 </ul>
@@ -103,63 +103,63 @@ mtcars_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="k
 <span class="co">#&gt; # A keyed object. Keys: vs, am </span>
 <span class="co">#&gt; # A tibble: 32 x 11</span>
 <span class="co">#&gt;     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb</span>
-<span class="co">#&gt; * &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
 <span class="co">#&gt; 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4</span>
 <span class="co">#&gt; 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4</span>
 <span class="co">#&gt; 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1</span>
-<span class="co">#&gt; # ... with 29 more rows</span>
+<span class="co">#&gt; # … with 29 more rows</span>
 
 mtcars_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">key_by</span>(<span class="kw">starts_with</span>(<span class="st">&quot;c&quot;</span>))
 <span class="co">#&gt; # A keyed object. Keys: cyl, carb </span>
 <span class="co">#&gt; # A tibble: 32 x 11</span>
 <span class="co">#&gt;     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb</span>
-<span class="co">#&gt; * &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
 <span class="co">#&gt; 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4</span>
 <span class="co">#&gt; 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4</span>
 <span class="co">#&gt; 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1</span>
-<span class="co">#&gt; # ... with 29 more rows</span>
+<span class="co">#&gt; # … with 29 more rows</span>
 
 mtcars_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">key_by</span>(<span class="kw">starts_with</span>(<span class="st">&quot;c&quot;</span>), <span class="dt">.exclude =</span> <span class="ot">TRUE</span>)
 <span class="co">#&gt; # A keyed object. Keys: cyl, carb </span>
 <span class="co">#&gt; # A tibble: 32 x 9</span>
 <span class="co">#&gt;     mpg  disp    hp  drat    wt  qsec    vs    am  gear</span>
-<span class="co">#&gt; * &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
 <span class="co">#&gt; 1  21     160   110  3.9   2.62  16.5     0     1     4</span>
 <span class="co">#&gt; 2  21     160   110  3.9   2.88  17.0     0     1     4</span>
 <span class="co">#&gt; 3  22.8   108    93  3.85  2.32  18.6     1     1     4</span>
-<span class="co">#&gt; # ... with 29 more rows</span>
+<span class="co">#&gt; # … with 29 more rows</span>
 
   <span class="co"># Scoped variants</span>
 mtcars_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">key_by_all</span>()
 <span class="co">#&gt; # A keyed object. Keys: mpg, cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb </span>
 <span class="co">#&gt; # A tibble: 32 x 11</span>
 <span class="co">#&gt;     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb</span>
-<span class="co">#&gt; * &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
 <span class="co">#&gt; 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4</span>
 <span class="co">#&gt; 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4</span>
 <span class="co">#&gt; 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1</span>
-<span class="co">#&gt; # ... with 29 more rows</span>
+<span class="co">#&gt; # … with 29 more rows</span>
 
 <span class="co"># One can also rename variables before keying by supplying .funs</span>
 mtcars_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">key_by_if</span>(rlang<span class="op">::</span>is_integerish, <span class="dt">.funs =</span> toupper)
 <span class="co">#&gt; # A keyed object. Keys: CYL, HP, VS, AM, GEAR, CARB </span>
 <span class="co">#&gt; # A tibble: 32 x 11</span>
 <span class="co">#&gt;     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb</span>
-<span class="co">#&gt; * &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
 <span class="co">#&gt; 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4</span>
 <span class="co">#&gt; 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4</span>
 <span class="co">#&gt; 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1</span>
-<span class="co">#&gt; # ... with 29 more rows</span>
+<span class="co">#&gt; # … with 29 more rows</span>
 
 mtcars_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">key_by_at</span>(<span class="kw">c</span>(<span class="st">&quot;vs&quot;</span>, <span class="st">&quot;am&quot;</span>))
 <span class="co">#&gt; # A keyed object. Keys: vs, am </span>
 <span class="co">#&gt; # A tibble: 32 x 11</span>
 <span class="co">#&gt;     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb</span>
-<span class="co">#&gt; * &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
 <span class="co">#&gt; 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4</span>
 <span class="co">#&gt; 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4</span>
 <span class="co">#&gt; 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1</span>
-<span class="co">#&gt; # ... with 29 more rows</span></code></pre></div>
+<span class="co">#&gt; # … with 29 more rows</span></code></pre></div>
 <p>To track rows use <code>use_id()</code> which creates a special key <code>.id</code> with row numbers as values.</p>
 <p>To properly unkey object use <code>unkey()</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars_tbl_keyed &lt;-<span class="st"> </span>mtcars_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">key_by</span>(vs, am)
@@ -168,11 +168,11 @@ mtcars_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="k
 mtcars_tbl_keyed <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unkey</span>()
 <span class="co">#&gt; # A tibble: 32 x 11</span>
 <span class="co">#&gt;     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb</span>
-<span class="co">#&gt; * &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
 <span class="co">#&gt; 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4</span>
 <span class="co">#&gt; 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4</span>
 <span class="co">#&gt; 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1</span>
-<span class="co">#&gt; # ... with 29 more rows</span>
+<span class="co">#&gt; # … with 29 more rows</span>
 
 <span class="co"># Bad</span>
 <span class="kw">attr</span>(mtcars_tbl_keyed, <span class="st">&quot;keys&quot;</span>) &lt;-<span class="st"> </span><span class="ot">NULL</span>
@@ -180,11 +180,11 @@ mtcars_tbl_keyed
 <span class="co">#&gt; # A keyed object. Keys: there are no keys.</span>
 <span class="co">#&gt; # A tibble: 32 x 11</span>
 <span class="co">#&gt;     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb</span>
-<span class="co">#&gt; * &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
 <span class="co">#&gt; 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4</span>
 <span class="co">#&gt; 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4</span>
 <span class="co">#&gt; 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1</span>
-<span class="co">#&gt; # ... with 29 more rows</span></code></pre></div>
+<span class="co">#&gt; # … with 29 more rows</span></code></pre></div>
 </div>
 <div id="get-keys" class="section level2">
 <h2>Get keys</h2>
@@ -198,11 +198,11 @@ mtcars_tbl_keyed
 mtcars_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">key_by</span>(vs, am) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">keys</span>()
 <span class="co">#&gt; # A tibble: 32 x 2</span>
 <span class="co">#&gt;      vs    am</span>
-<span class="co">#&gt; * &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt;</span>
 <span class="co">#&gt; 1     0     1</span>
 <span class="co">#&gt; 2     0     1</span>
 <span class="co">#&gt; 3     1     1</span>
-<span class="co">#&gt; # ... with 29 more rows</span></code></pre></div>
+<span class="co">#&gt; # … with 29 more rows</span></code></pre></div>
 <ul>
 <li>With <code>raw_keys()</code> which is just a wrapper for <code>attr(.tbl, &quot;keys&quot;)</code>.</li>
 </ul>
@@ -212,11 +212,11 @@ mtcars_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="k
 mtcars_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">key_by</span>(vs, am) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">raw_keys</span>()
 <span class="co">#&gt; # A tibble: 32 x 2</span>
 <span class="co">#&gt;      vs    am</span>
-<span class="co">#&gt; * &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt;</span>
 <span class="co">#&gt; 1     0     1</span>
 <span class="co">#&gt; 2     0     1</span>
 <span class="co">#&gt; 3     1     1</span>
-<span class="co">#&gt; # ... with 29 more rows</span></code></pre></div>
+<span class="co">#&gt; # … with 29 more rows</span></code></pre></div>
 <ul>
 <li>With <code>pull_key()</code> which works like <code>dplyr</code>’s <code>pull</code> applied to keys:</li>
 </ul>
@@ -232,41 +232,41 @@ mtcars_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="k
 <span class="co">#&gt; # A keyed object. Keys: mpg </span>
 <span class="co">#&gt; # A tibble: 32 x 11</span>
 <span class="co">#&gt;     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb</span>
-<span class="co">#&gt; * &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
 <span class="co">#&gt; 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4</span>
 <span class="co">#&gt; 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4</span>
 <span class="co">#&gt; 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1</span>
-<span class="co">#&gt; # ... with 29 more rows</span>
+<span class="co">#&gt; # … with 29 more rows</span>
 
 mtcars_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">key_by</span>(vs, mpg) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">remove_keys</span>(<span class="kw">everything</span>(), <span class="dt">.unkey =</span> <span class="ot">TRUE</span>)
 <span class="co">#&gt; # A tibble: 32 x 11</span>
 <span class="co">#&gt;     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb</span>
-<span class="co">#&gt; * &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
 <span class="co">#&gt; 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4</span>
 <span class="co">#&gt; 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4</span>
 <span class="co">#&gt; 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1</span>
-<span class="co">#&gt; # ... with 29 more rows</span>
+<span class="co">#&gt; # … with 29 more rows</span>
 
   <span class="co"># Scoped variants</span>
 <span class="co"># Identical to previous one</span>
 mtcars_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">key_by</span>(vs, mpg) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">remove_keys_all</span>(<span class="dt">.unkey =</span> <span class="ot">TRUE</span>)
 <span class="co">#&gt; # A tibble: 32 x 11</span>
 <span class="co">#&gt;     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb</span>
-<span class="co">#&gt; * &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
 <span class="co">#&gt; 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4</span>
 <span class="co">#&gt; 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4</span>
 <span class="co">#&gt; 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1</span>
-<span class="co">#&gt; # ... with 29 more rows</span>
+<span class="co">#&gt; # … with 29 more rows</span>
 
 mtcars_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">key_by</span>(vs, mpg) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">remove_keys_if</span>(rlang<span class="op">::</span>is_integerish)
 <span class="co">#&gt; # A keyed object. Keys: mpg </span>
 <span class="co">#&gt; # A tibble: 32 x 11</span>
 <span class="co">#&gt;     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb</span>
-<span class="co">#&gt; * &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
 <span class="co">#&gt; 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4</span>
 <span class="co">#&gt; 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4</span>
 <span class="co">#&gt; 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1</span>
-<span class="co">#&gt; # ... with 29 more rows</span></code></pre></div>
+<span class="co">#&gt; # … with 29 more rows</span></code></pre></div>
 <ul>
 <li>Restore certain keys with <code>restore_keys()</code> and its scoped variants. Restoring means creating or modifying a column in reference data frame with values taken from keys. After restoring certain key one can remove it from keys by setting <code>.remove</code> to <code>TRUE</code>. There is also an option <code>.unkey</code> identical to one in <code>remove_keys()</code> (which is meaningful only in case <code>.remove</code> is <code>TRUE</code>).</li>
 </ul>
@@ -281,7 +281,7 @@ mtcars_tbl_keyed
 <span class="co">#&gt; 1     0     6   160   110  3.9   2.62  16.5     1     1     4     4</span>
 <span class="co">#&gt; 2     0     6   160   110  3.9   2.88  17.0     1     1     4     4</span>
 <span class="co">#&gt; 3     0     4   108    93  3.85  2.32  18.6     1     1     4     1</span>
-<span class="co">#&gt; # ... with 29 more rows</span>
+<span class="co">#&gt; # … with 29 more rows</span>
 
 mtcars_tbl_keyed <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">restore_keys</span>(vs)
 <span class="co">#&gt; # A keyed object. Keys: vs, mpg </span>
@@ -291,7 +291,7 @@ mtcars_tbl_keyed <span class="op">%&gt;%</span><span class="st"> </span><span cl
 <span class="co">#&gt; 1     0     6   160   110  3.9   2.62  16.5     0     1     4     4</span>
 <span class="co">#&gt; 2     0     6   160   110  3.9   2.88  17.0     0     1     4     4</span>
 <span class="co">#&gt; 3     0     4   108    93  3.85  2.32  18.6     1     1     4     1</span>
-<span class="co">#&gt; # ... with 29 more rows</span>
+<span class="co">#&gt; # … with 29 more rows</span>
 
 mtcars_tbl_keyed <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">restore_keys</span>(vs, <span class="dt">.remove =</span> <span class="ot">TRUE</span>)
 <span class="co">#&gt; # A keyed object. Keys: mpg </span>
@@ -301,7 +301,7 @@ mtcars_tbl_keyed <span class="op">%&gt;%</span><span class="st"> </span><span cl
 <span class="co">#&gt; 1     0     6   160   110  3.9   2.62  16.5     0     1     4     4</span>
 <span class="co">#&gt; 2     0     6   160   110  3.9   2.88  17.0     0     1     4     4</span>
 <span class="co">#&gt; 3     0     4   108    93  3.85  2.32  18.6     1     1     4     1</span>
-<span class="co">#&gt; # ... with 29 more rows</span>
+<span class="co">#&gt; # … with 29 more rows</span>
 
 mtcars_tbl_keyed <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">restore_keys</span>(vs, mpg, <span class="dt">.unkey =</span> <span class="ot">TRUE</span>)
 <span class="co">#&gt; # A keyed object. Keys: vs, mpg </span>
@@ -311,7 +311,7 @@ mtcars_tbl_keyed <span class="op">%&gt;%</span><span class="st"> </span><span cl
 <span class="co">#&gt; 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4</span>
 <span class="co">#&gt; 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4</span>
 <span class="co">#&gt; 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1</span>
-<span class="co">#&gt; # ... with 29 more rows</span>
+<span class="co">#&gt; # … with 29 more rows</span>
 
 mtcars_tbl_keyed <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">restore_keys</span>(vs, mpg, <span class="dt">.remove =</span> <span class="ot">TRUE</span>, <span class="dt">.unkey =</span> <span class="ot">TRUE</span>)
 <span class="co">#&gt; # A tibble: 32 x 11</span>
@@ -320,7 +320,7 @@ mtcars_tbl_keyed <span class="op">%&gt;%</span><span class="st"> </span><span cl
 <span class="co">#&gt; 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4</span>
 <span class="co">#&gt; 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4</span>
 <span class="co">#&gt; 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1</span>
-<span class="co">#&gt; # ... with 29 more rows</span>
+<span class="co">#&gt; # … with 29 more rows</span>
 
   <span class="co"># Scoped variants</span>
 mtcars_tbl_keyed <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">restore_keys_all</span>()
@@ -331,7 +331,7 @@ mtcars_tbl_keyed <span class="op">%&gt;%</span><span class="st"> </span><span cl
 <span class="co">#&gt; 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4</span>
 <span class="co">#&gt; 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4</span>
 <span class="co">#&gt; 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1</span>
-<span class="co">#&gt; # ... with 29 more rows</span>
+<span class="co">#&gt; # … with 29 more rows</span>
 
 mtcars_tbl_keyed <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">restore_keys_if</span>(rlang<span class="op">::</span>is_integerish, <span class="dt">.remove =</span> <span class="ot">TRUE</span>)
 <span class="co">#&gt; # A keyed object. Keys: mpg </span>
@@ -341,7 +341,7 @@ mtcars_tbl_keyed <span class="op">%&gt;%</span><span class="st"> </span><span cl
 <span class="co">#&gt; 1     0     6   160   110  3.9   2.62  16.5     0     1     4     4</span>
 <span class="co">#&gt; 2     0     6   160   110  3.9   2.88  17.0     0     1     4     4</span>
 <span class="co">#&gt; 3     0     4   108    93  3.85  2.32  18.6     1     1     4     1</span>
-<span class="co">#&gt; # ... with 29 more rows</span></code></pre></div>
+<span class="co">#&gt; # … with 29 more rows</span></code></pre></div>
 <p>One important feature of <code>restore_keys()</code> is that restoring keys beats ‘not-modifying’ grouping variables rule. It is made according to the ideology of keys: they contain information about rows and by restoring you want it to be available. Groups are recomputed after restoring.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars_tbl_keyed <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(vs, mpg)
 <span class="co">#&gt; # A keyed object. Keys: vs, mpg </span>
@@ -352,7 +352,7 @@ mtcars_tbl_keyed <span class="op">%&gt;%</span><span class="st"> </span><span cl
 <span class="co">#&gt; 1     0     6   160   110  3.9   2.62  16.5     1     1     4     4</span>
 <span class="co">#&gt; 2     0     6   160   110  3.9   2.88  17.0     1     1     4     4</span>
 <span class="co">#&gt; 3     0     4   108    93  3.85  2.32  18.6     1     1     4     1</span>
-<span class="co">#&gt; # ... with 29 more rows</span>
+<span class="co">#&gt; # … with 29 more rows</span>
 
 mtcars_tbl_keyed <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(vs, mpg) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">restore_keys</span>(vs, mpg)
 <span class="co">#&gt; # A keyed object. Keys: vs, mpg </span>
@@ -363,7 +363,7 @@ mtcars_tbl_keyed <span class="op">%&gt;%</span><span class="st"> </span><span cl
 <span class="co">#&gt; 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4</span>
 <span class="co">#&gt; 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4</span>
 <span class="co">#&gt; 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1</span>
-<span class="co">#&gt; # ... with 29 more rows</span></code></pre></div>
+<span class="co">#&gt; # … with 29 more rows</span></code></pre></div>
 <ul>
 <li>Rename keys with <code>rename_keys()</code> and its scoped variants. Renaming is done with <code>dplyr</code>’s <code>rename()</code> or its scoped variant and so renaming format comes from them.</li>
 </ul>
@@ -371,22 +371,22 @@ mtcars_tbl_keyed <span class="op">%&gt;%</span><span class="st"> </span><span cl
 <span class="co">#&gt; # A keyed object. Keys: Vs, am </span>
 <span class="co">#&gt; # A tibble: 32 x 11</span>
 <span class="co">#&gt;     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb</span>
-<span class="co">#&gt; * &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
 <span class="co">#&gt; 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4</span>
 <span class="co">#&gt; 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4</span>
 <span class="co">#&gt; 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1</span>
-<span class="co">#&gt; # ... with 29 more rows</span>
+<span class="co">#&gt; # … with 29 more rows</span>
 
   <span class="co"># Scoped variants</span>
 mtcars_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">key_by</span>(vs, am) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rename_keys_all</span>(<span class="dt">.funs =</span> toupper)
 <span class="co">#&gt; # A keyed object. Keys: VS, AM </span>
 <span class="co">#&gt; # A tibble: 32 x 11</span>
 <span class="co">#&gt;     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb</span>
-<span class="co">#&gt; * &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
 <span class="co">#&gt; 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4</span>
 <span class="co">#&gt; 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4</span>
 <span class="co">#&gt; 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1</span>
-<span class="co">#&gt; # ... with 29 more rows</span></code></pre></div>
+<span class="co">#&gt; # … with 29 more rows</span></code></pre></div>
 </div>
 <div id="react-to-subset" class="section level2">
 <h2>React to subset</h2>
@@ -420,11 +420,11 @@ mtcars_tbl_keyed <span class="op">%&gt;%</span><span class="st"> </span><span cl
 <span class="co">#&gt; # A keyed object. Keys: vs, am </span>
 <span class="co">#&gt; # A tibble: 32 x 2</span>
 <span class="co">#&gt;    gear   mpg</span>
-<span class="co">#&gt; * &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt;</span>
 <span class="co">#&gt; 1     4  21  </span>
 <span class="co">#&gt; 2     4  21  </span>
 <span class="co">#&gt; 3     4  22.8</span>
-<span class="co">#&gt; # ... with 29 more rows</span>
+<span class="co">#&gt; # … with 29 more rows</span>
 
 mtcars_tbl_keyed <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">meanMPG =</span> <span class="kw">mean</span>(mpg))
 <span class="co">#&gt; # A tibble: 1 x 1</span>
@@ -439,7 +439,7 @@ mtcars_tbl_keyed <span class="op">%&gt;%</span><span class="st"> </span><span cl
 <span class="co">#&gt; 1     1     1</span>
 <span class="co">#&gt; 2     1     0</span>
 <span class="co">#&gt; 3     1     0</span>
-<span class="co">#&gt; # ... with 11 more rows</span>
+<span class="co">#&gt; # … with 11 more rows</span>
 
 mtcars_tbl_keyed <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange_at</span>(<span class="st">&quot;mpg&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">keys</span>()
 <span class="co">#&gt; # A tibble: 32 x 2</span>
@@ -448,7 +448,7 @@ mtcars_tbl_keyed <span class="op">%&gt;%</span><span class="st"> </span><span cl
 <span class="co">#&gt; 1     0     0</span>
 <span class="co">#&gt; 2     0     0</span>
 <span class="co">#&gt; 3     0     0</span>
-<span class="co">#&gt; # ... with 29 more rows</span>
+<span class="co">#&gt; # … with 29 more rows</span>
 
 band_members <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">key_by</span>(name) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">semi_join</span>(band_instruments, <span class="dt">by =</span> <span class="st">&quot;name&quot;</span>) <span class="op">%&gt;%</span>
