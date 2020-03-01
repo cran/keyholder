@@ -1,3 +1,7 @@
+# keyholder 0.1.4
+
+* Reaction to `tibble` 3.0.0.
+
 # keyholder 0.1.3
 
 * Reaction to `tibble` 2.0.0: ease some tests and adjust to deprecated functionality.
