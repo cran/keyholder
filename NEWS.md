@@ -1,3 +1,7 @@
+# keyholder 0.1.5
+
+* Reaction to `dplyr` 1.0.0.
+
 # keyholder 0.1.4
 
 * Reaction to `tibble` 3.0.0.
