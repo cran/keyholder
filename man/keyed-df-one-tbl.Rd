@@ -5,6 +5,7 @@
 \alias{select.keyed_df}
 \alias{rename.keyed_df}
 \alias{mutate.keyed_df}
+\alias{transmute.keyed_df}
 \alias{summarise.keyed_df}
 \alias{group_by.keyed_df}
 \alias{ungroup.keyed_df}
@@ -21,6 +22,8 @@
 \method{rename}{keyed_df}(.tbl, ...)
 
 \method{mutate}{keyed_df}(.tbl, ...)
+
+\method{transmute}{keyed_df}(.tbl, ...)
 
 \method{summarise}{keyed_df}(.tbl, ...)
 
@@ -57,7 +60,7 @@ modify rows in keys according to the rows modification in reference
 data frame (if any).
 }
 \details{
-\code{\link[dplyr:transmute]{dplyr::transmute()}} is supported implicitly with \code{\link[dplyr:mutate]{dplyr::mutate()}}
+\code{\link[dplyr:mutate]{dplyr::transmute()}} is supported implicitly with \code{\link[dplyr:mutate]{dplyr::mutate()}}
 support.
 
 \code{\link[dplyr:rowwise]{dplyr::rowwise()}} is not supposed to be generic in \code{dplyr}. Use
