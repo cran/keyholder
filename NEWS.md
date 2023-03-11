@@ -1,3 +1,7 @@
+# keyholder 0.1.7
+
+* Reacion to CRAN warnings.
+
 # keyholder 0.1.6
 
 * Reaction to `dplyr` 1.0.8.

@@ -17,34 +17,34 @@
 \alias{slice.keyed_df}
 \title{One-table verbs from dplyr for keyed_df}
 \usage{
-\method{select}{keyed_df}(.tbl, ...)
+\method{select}{keyed_df}(.data, ...)
 
-\method{rename}{keyed_df}(.tbl, ...)
+\method{rename}{keyed_df}(.data, ...)
 
-\method{mutate}{keyed_df}(.tbl, ...)
+\method{mutate}{keyed_df}(.data, ...)
 
-\method{transmute}{keyed_df}(.tbl, ...)
+\method{transmute}{keyed_df}(.data, ...)
 
-\method{summarise}{keyed_df}(.tbl, ...)
+\method{summarise}{keyed_df}(.data, ...)
 
-\method{group_by}{keyed_df}(.tbl, ...)
+\method{group_by}{keyed_df}(.data, ...)
 
-\method{ungroup}{keyed_df}(.tbl, ...)
+\method{ungroup}{keyed_df}(x, ...)
 
-\method{rowwise}{keyed_df}(.tbl)
+\method{rowwise}{keyed_df}(data, ...)
 
-\method{distinct}{keyed_df}(.tbl, ..., .keep_all = FALSE)
+\method{distinct}{keyed_df}(.data, ..., .keep_all = FALSE)
 
-\method{do}{keyed_df}(.tbl, ...)
+\method{do}{keyed_df}(.data, ...)
 
-\method{arrange}{keyed_df}(.tbl, ..., .by_group = FALSE)
+\method{arrange}{keyed_df}(.data, ..., .by_group = FALSE)
 
 \method{filter}{keyed_df}(.data, ...)
 
-\method{slice}{keyed_df}(.tbl, ...)
+\method{slice}{keyed_df}(.data, ...)
 }
 \arguments{
-\item{.tbl, .data}{A keyed object.}
+\item{.data, data, x}{A keyed object.}
 
 \item{...}{Appropriate arguments for functions.}
 
@@ -60,7 +60,7 @@ modify rows in keys according to the rows modification in reference
 data frame (if any).
 }
 \details{
-\code{\link[dplyr:mutate]{dplyr::transmute()}} is supported implicitly with \code{\link[dplyr:mutate]{dplyr::mutate()}}
+\code{\link[dplyr:transmute]{dplyr::transmute()}} is supported implicitly with \code{\link[dplyr:mutate]{dplyr::mutate()}}
 support.
 
 \code{\link[dplyr:rowwise]{dplyr::rowwise()}} is not supposed to be generic in \code{dplyr}. Use
